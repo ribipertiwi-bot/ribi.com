@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaun Klasik - Tiga Halaman</title>
+    <!-- Memuat Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Font yang Elegan -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        /* Mengatur tampilan halaman */
+        [data-page] { display: none; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        [data-page].active { display: block; opacity: 1; }
+
+        /* Mengatur tinggi minimal konten */
+        .page-content-wrapper { min-height: calc(100vh - 128px); } /* 80px nav + 48px footer */
+    </style>
+</head>
+<body class="bg-gray-50 font-body text-gray-800">
+    <div id="app" class="flex flex-col min-h-screen">
+        
+        <!-- Navigation Bar -->
+        <nav class="bg-white shadow-lg sticky top-0 z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <!-- Logo/Nama Brand -->
+                    <div class="items-center flex-shrink-0 flex">
+                        <span class="text-3xl font-heading text-pink-600 tracking-wider font-bold">
+                            Gaun Klasik
+                        </span>
+                    </div>
+                    <!-- Menu Navigasi -->
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <button data-target="home" class="nav-link text-gray-600 hover:text-pink-600 px-3 py-2 rounded-lg text-sm sm:text-base font-medium transition duration-150 active-class">
+                            Beranda
+                        </button>
+                        <button data-target="collection" class="nav-link text-gray-600 hover:text-pink-600 px-3 py-2 rounded-lg text-sm sm:text-base font-medium transition duration-150">
+                            Koleksi
+                        </button>
+                        <button data-target="about" class="nav-link text-gray-600 hover:text-pink-600 px-3 py-2 rounded-lg text-sm sm:text-base font-medium transition duration-150">
+                            Tentang Kami
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Container -->
+        <main class="flex-grow max-w-7xl mx-auto pt-8 pb-16 px-4 sm:px-6 lg:px-8 w-full page-content-wrapper">
+
+            <!-- 1. BERANDA (HOME) PAGE -->
+            <section id="home" data-page="home" class="page-content active">
+                <header class="relative overflow-hidden rounded-xl shadow-xl mb-12">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x500/F0B5C6/FFFFFF?text=Gaun+Elegan+Beranda');">
+                        <div class="absolute inset-0 bg-black opacity-35"></div>
+                    </div>
+                    <div class="relative py-20 sm:py-32 text-center text-white">
+                        <h1 class="text-4xl sm:text-6xl font-heading font-bold mb-4 tracking-tight">
+                            Keanggunan yang Abadi
+                        </h1>
+                        <p class="text-lg sm:text-xl font-light mb-8 max-w-2xl mx-auto">
+                            Temukan gaun sempurna yang merayakan keunikan diri Anda.
+                        </p>
+                        <button data-target="collection" class="nav-link bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                            Jelajahi Koleksi Kami
+                        </button>
+                    </div>
+                </header>
+
+                <h2 class="text-2xl font-heading font-bold text-center mb-6 text-gray-700">Mengapa Memilih Kami?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl border-t-4 border-pink-500">
+                        <h3 class="text-xl font-heading font-semibold mb-3 text-pink-600">Desain Eksklusif</h3>
+                        <p class="text-gray-600">Gaun dirancang secara unik oleh desainer ternama, menjamin penampilan yang berbeda dan berkelas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl border-t-4 border-pink-500">
+                        <h3 class="text-xl font-heading font-semibold mb-3 text-pink-600">Kualitas Bahan Premium</h3>
+                        <p class="text-gray-600">Hanya menggunakan sutra, renda, dan brokat terbaik untuk kenyamanan dan keindahan maksimal.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md transition duration-300 hover:shadow-xl border-t-4 border-pink-500">
+                        <h3 class="text-xl font-heading font-semibold mb-3 text-pink-600">Pengalaman Personal</h3>
+                        <p class="text-gray-600">Layanan konsultasi gaya satu-per-satu untuk menemukan atau menciptakan gaun impian Anda.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. KOLEKSI (COLLECTION) PAGE -->
+            <section id="collection" data-page="collection" class="page-content">
+                <h2 class="text-4xl font-heading font-bold text-center mb-10 text-pink-700">Koleksi Gaun Musim Ini</h2>
+                
+                <!-- Gaun Pilihan -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Gaun Malam 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="glamor merah.webp" alt="Gaun Malam Glamor" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Pesta Glamor</h3>
+                            <p class="text-gray-600 text-sm mb-4">Gaun panjang berekor dengan sentuhan payet kristal, sempurna untuk acara karpet merah.</p>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Gaun Malam</span>
+                        </div>
+                    </div>
+
+                    <!-- Gaun Pengantin 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="pengantin.jpg" alt="Gaun Pengantin Klasik" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Pengantin Klasik</h3>
+                            <p class="text-gray-600 text-sm mb-4">Siluet A-Line anggun dengan detail renda yang rumit dan bahan satin duchess.</p>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Pernikahan</span>
+                        </div>
+                    </div>
+
+                    <!-- Gaun Koktail 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="gaun biasa.jpeg" alt="Gaun Koktail Midi" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Koktail Midi</h3>
+                            <p class="text-gray-600 text-sm mb-4">Desain yang lebih ringan dan berani, ideal untuk resepsi atau pesta semi-formal.</p>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Koktail</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gaun Kebaya Modern 4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="kebaya.jpg" alt="Kebaya Pesta Modern" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Kebaya Pesta Modern</h3>
+                            <p class="text-gray-600 text-sm mb-4">Perpaduan budaya Indonesia dengan desain kontemporer yang mewah.</p>
+                            <span class="inline-block bg-pink-100 text-pink-800 text-xs font-medium px-3 py-1 rounded-full">Etnik</span>
+                        </div>
+                    </div>
+
+                    <!-- Gaun Musim Panas 5 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="panas.jpg" alt="Gaun Musim Panas Flowy" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Musim Panas Ringan</h3>
+                            <p class="text-gray-600 text-sm mb-4">Bahan katun lembut dengan motif bunga ceria, cocok untuk liburan santai.</p>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">Kasual</span>
+                        </div>
+                    </div>
+
+                    <!-- Gaun Prom 6 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="berkilau.avif" alt="Gaun Prom Berkilau" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Prom Berkilau</h3>
+                            <p class="text-gray-600 text-sm mb-4">Gaun bal tipis dengan taburan manik-manik, untuk malam yang tak terlupakan.</p>
+                            <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-3 py-1 rounded-full">Formal</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gaun Maxi 7 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="korea.jpg" alt="Gaun Maxi Sifon" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Maxi Sifon</h3>
+                            <p class="text-gray-600 text-sm mb-4">Gaun panjang flowy dari bahan sifon yang nyaman, pas untuk acara santai sore.</p>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full">Harian</span>
+                        </div>
+                    </div>
+
+                    <!-- Gaun Blazer 8 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                        <img src="blazer.avif" alt="Gaun Blazer Modern" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-heading font-semibold mb-2 text-pink-600">Gaun Blazer Modern</h3>
+                            <p class="text-gray-600 text-sm mb-4">Potongan tajam dan berkelas, ideal untuk pertemuan bisnis atau acara profesional.</p>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Profesional</span>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- CTA Sederhana -->
+                <div class="text-center mt-12 p-8 bg-pink-50 rounded-xl border-2 border-pink-200">
+                    <p class="text-xl font-heading font-semibold text-pink-700 mb-4">Tidak menemukan yang Anda cari?</p>
+                    <button class="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="navigate('about')">
+                        Hubungi Konsultan Kami
+                    </button>
+                </div>
+            </section>
+
+            <!-- 3. TENTANG KAMI (ABOUT US) PAGE -->
+            <section id="about" data-page="about" class="page-content">
+                <div class="bg-white p-10 sm:p-16 rounded-xl shadow-2xl">
+                    <h2 class="text-4xl font-heading font-bold text-center mb-8 text-pink-700">Penjelasan Gaun Klasik</h2>
+                    
+                    <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-700">
+                        <h3 class="text-2xl font-heading font-bold text-pink-600 mb-4 border-b-2 border-pink-100 pb-2">Apa itu Gaun Klasik?</h3>
+                        
+                        <p>Gaun Klasik adalah destinasi utama Anda untuk busana wanita yang elegan dan berkualitas tinggi. Kami fokus pada penyediaan berbagai macam gaun yang menggabungkan estetika tradisional dengan tren fashion modern.</p>
+                        
+                        <p class="text-xl font-heading font-semibold text-pink-600 pt-4">Kategori Produk Utama Kami:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-700">
+                            <li>**Gaun Pesta Formal:** Gaun panjang dan megah untuk acara malam, prom, dan resepsi penting.</li>
+                            <li>**Gaun Pengantin:** Pilihan gaun pernikahan klasik, modern, hingga adat.</li>
+                            <li>**Busana Kasual & Harian:** Gaun maxi, midi, dan koktail yang nyaman namun tetap modis untuk kegiatan sehari-hari atau semi-formal.</li>
+                            <li>**Koleksi Etnik:** Kebaya pesta dan gaun dengan sentuhan tradisional Indonesia yang mewah.</li>
+                        </ul>
+                        
+                        <p class="text-xl font-heading font-semibold text-pink-600 pt-4">Komitmen Nilai Kami:</p>
+                        <p>Kami memastikan setiap gaun memiliki **Kualitas Bahan Premium** (seperti sutra, satin, dan renda impor) dan **Desain Eksklusif** yang tidak pasaran. Tujuan kami adalah membuat Anda merasa istimewa di setiap kesempatan.</p>
+                        
+                        <p class="pt-8 text-center border-t border-gray-100 mt-8">
+                            <span class="block text-xl font-heading font-semibold text-pink-700 mb-2">Tertarik? Kunjungi Koleksi Kami!</span>
+                            <button data-target="collection" class="nav-link bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 mt-2">
+                                Lihat Semua Gaun
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-6 mt-auto">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-sm">&copy; 2025 Gaun Klasik. Dibuat dengan Anggun.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript untuk Menangani Navigasi Halaman -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageContainer = document.getElementById('app');
+            const navLinks = pageContainer.querySelectorAll('.nav-link');
+            const pageSections = pageContainer.querySelectorAll('[data-page]');
+
+            // Fungsi untuk mengubah halaman yang ditampilkan
+            function navigate(targetPage) {
+                // 1. Deaktivasi semua halaman
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // 2. Deaktivasi status 'active-class' pada tombol navigasi
+                navLinks.forEach(link => {
+                    link.classList.remove('text-pink-600', 'font-bold');
+                    link.classList.add('text-gray-600');
+                });
+
+                // 3. Cari dan aktifkan halaman target
+                const activePage = pageContainer.querySelector(`#${targetPage}`);
+                if (activePage) {
+                    activePage.classList.add('active');
+                }
+
+                // 4. Aktifkan status 'active-class' pada tombol navigasi yang diklik
+                const activeLink = pageContainer.querySelector(`.nav-link[data-target="${targetPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.remove('text-gray-600');
+                    activeLink.classList.add('text-pink-600', 'font-bold');
+                }
+            }
+
+            // Event listener untuk semua tombol navigasi
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = e.currentTarget.getAttribute('data-target');
+                    if (target) {
+                        navigate(target);
+                    }
+                });
+            });
+
+            // Fungsi navigate juga diperlukan di sini agar dapat dipanggil dari tombol di dalam halaman (misalnya di Beranda)
+            window.navigate = navigate;
+
+            // Pemuatan awal: tampilkan halaman 'home'
+            navigate('home');
+        });
+    </script>
+</body>
+</html>
